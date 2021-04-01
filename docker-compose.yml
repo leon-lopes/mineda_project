@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - dbvol:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: fatec_db
+    ports:
+      - 3306:3306
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
+volumes:
+  dbvol:
